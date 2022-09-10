@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+{% include 'head.html' %}
+
+<body>
+    {% include 'header.html' %}
+
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tag}}">
+            {{ message }}
+        </div>
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}></li>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+    {% include 'footer.html' %}
+    {% include 'scripts.html' %}
+<!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</body>
+
+</html>
